@@ -1,0 +1,39 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+    
+    <bean id="customerBean" class="com.karaca.spring3autowiring.Customer">
+        <property name="person" ref="personBean"/>
+    </bean>
+    
+    <bean id="personBean" class="com.karaca.spring3autowiring.Person">
+        <property name="name" value="Kemal"/>
+    </bean>
+       
+    <!--Auto-wiring byName--> 
+    <bean id="customerAutowireByName" 
+          class="com.karaca.spring3autowiring.Customer" 
+          autowire="byName">
+    </bean> 
+    
+    <bean id="person" class="com.karaca.spring3autowiring.Person">
+        <property name="name" value="Sami" />
+    </bean>
+
+    <!--Auto-wiring byType--> 
+    <bean id="departmentAutowireByType" 
+          class="com.karaca.spring3autowiring.Department" 
+          autowire="byType">
+    </bean> 
+    
+    <bean id="managerAutowireByType" class="com.karaca.spring3autowiring.Manager">
+        <property name="name" value="Manager Kemal" />
+    </bean>
+
+</beans>
+
